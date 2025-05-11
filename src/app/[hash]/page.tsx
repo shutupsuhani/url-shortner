@@ -10,10 +10,10 @@ interface RedirectPageProps {
   };
 }
 
-export default async function RedirectPage({ params }: RedirectPageProps) {
+export default  async function RedirectPage({ params }: RedirectPageProps) {
   await connectToDB();
 
-  const url = await Url.findOne({ hash: params.hash }).lean<IUrl>();
+  const url =await Url.findOne({ hash: params.hash }).lean<IUrl>();
   
   if (!url) {
     notFound(); // 404 error page
